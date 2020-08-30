@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical-9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+*{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+    }
+    .header{
+        width: 100%;
+        height: 70px;
+        background-color: grey;
+    }
+    .header .menu{
+        list-style: none;
+        /* display: inline-block; */
+        float: right;
+    }
+    .menu li{
+        display: inline-block;
+        line-height: 70px;
+    }
+    .menu li a{
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        padding: 0 20px;
+        transition: .4s;
+        /* display: flex;
+        justify-content: space-evenly; */
+    }
+
+    .menu li a:hover, .shw-btn a:hover, .hide-btn a:hover{
+        color: skyblue;
+    } 
+
+
+    .shw-btn, .hide-btn{
+        line-height: 70px;
+        color: white;
+        font-size: 30px;
+        transition: .4s;
+        display: none;
+    }
+    .shw-btn{
+        float: right;
+    } 
+
+    #chk{
+        position: absolute;
+        visibility: hidden;
+        z-index: -10;
+    }
+
+
+    @media (max-width: 747px) { 
+
+        .shw-btn{
+            display: block;
+        }
+        .menu{
+            position: fixed;
+            top: 0;
+            /* silder effect */
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            text-align: center;
+            padding: 80px 0;
+            transition: .7s;
+            line-height: normal;
+        }
+
+        #chk:checked ~ .menu{
+            right: 0;
+        }
+        #chk:checked ~ .hide-btn{
+            display: block;
+        }
+        #chk:checked ~ .shw-btn{
+            display: none;
+        }
+
+        .menu li{
+            /* display: flex;
+            flex-direction: column; */
+            display: block;
+            padding: 20px 0;
+
+        }
+
+        .menu li a{
+            /* display: flex;
+            flex-direction: column; */
+            display: block;
+        }
+
+        .hide-btn{
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            }
+
+    #laptop-pic{
+        margin-top: 20px;
+        margin: 5px;
+        width: 100%;
+        height: 1000px;
+        border: #0d0e13 solid 2px;
+        background: url("Practical-8\ Laptop\ Pic.jpg");
+    }
+    #circles{
+        content: " ";
+        display : block;
+        clear: both;
+    } 
+    #circle-1{
+        /* float: left; */
+        width: 230px;
+        height: 230px;
+        margin: auto 50px;
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(1\).png");
+    }
+    #circle-2{
+        /* float: left; */
+        width: 230px;
+        height: 230px; 
+        margin: auto 50px;
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(2\).png");
+    }
+    #circle-3{
+        width: 230px;
+        height: 230px;
+        margin: auto 50px;
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(3\).png");
+    }
+    #circle-4{
+        width: 230px;
+        height: 230px;
+        margin: auto 50px;
+        margin-top: 20px;
+        /* margin-left: 400px;  */
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(4\).png");
+    } 
+    #about-us{
+        display: flex;
+        flex-direction: column-reverse; 
+    } 
+    #about-us:after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+    #left-side{
+        order: 1;
+        width: 100%;
+        border: #0d0e13 solid 2px;
+        background-color: grey;
+        color: white;
+        margin-right: 10px;
+    }
+    #right-side{
+        width: 100%;
+        display:flex;
+        border: #0d0e13 solid 2px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    #image-1 h1{
+        text-align: center;
+        color: black;
+    }
+    #image-2 h1{
+        text-align: center;
+        color: black;
+        /* display: block;
+        display: none; */
+    }
+    #image-3 h1{
+        text-align: center;
+        color: black;
+        /* display: block;
+        display: none; */
+    }
+
+    #image-1{
+        width: 97%;
+        height: 140px;
+        margin-bottom: 10px;
+        background: url('../Fullstack-1/Practical-8\ Project\(1\).jpg');
+        display: flex;
+        text-align: center;
+    }
+    #image-2{
+        background: url('../Fullstack-1/Practical-8\ Project\(2\).jpeg');
+        width: 97%;
+        height: 140px;
+        margin-bottom: 10px;
+        display: flex; 
+        display: block;
+        text-align: center;
+        /* display: none; */
+    }
+    #image-3{
+        background:url('../Fullstack-1/Practical-8\ Project\(3\).jpg');
+        width: 97%;
+        height: 140px;
+        display: flex;
+        display: block; 
+        text-align: center;
+        /* display: none; */
+    }
+    #tech:after {
+          content: '';
+          display: block;
+          clear: both;
+    }
+
+    /* #tech{
+        display:flex;
+        flex-direction: row-reverse; 
+    }  */
+    #html-card{
+        /* float: left; */
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: #0d0e13 solid 2px; */
+        padding: 10px;
+        margin: 25px;
+    }
+    #css-card{
+        /* float: left; */
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: #0d0e13 solid 2px; */
+        padding: 10px;
+        margin: 25px;
+    }
+    #boot-card{
+        /* float: left; */
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: #0d0e13 solid 2px; */
+        padding: 10px;
+        margin: 25px;
+    }
+    #js-card{
+        /* float: left; */
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: black 2px; */
+        padding: 10px;
+        margin: 25px;
+        margin-top: 20px;
+        /* margin-left: 400px; */
+    }
+    img{
+        width: 100%;
+        height: 45%;
+        border-radius: 10px;
+    }
+
+    #ht{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    #ht:hover{
+        background-color: blue;
+    }
+    #cs{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block; 
+        padding: 10px;
+    }
+    #cs:hover{
+        background-color: blue;
+    }
+    #js{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #js:hover{
+        background-color: blue;
+    }
+    #bs{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #bs:hover{
+        background-color: blue;
+    }
+
+
+    #contact{
+        margin: 10px;
+        width: 100%;
+        height: 100px;
+        border: #0d0e13 solid 2px;
+        background-color:rgb(146, 102, 108);
+        text-align: center;
+        font-size: 20px;
+    }
+    }
+    @media (min-width: 750px) and (max-width: 1200px){
+
+    .menu li a{
+        text-decoration: none;
+    }
+    li{
+        list-style: none;
+    }
+    #abc{
+        text-align: left;
+    }
+    h2{
+        text-align: center;
+    }
+    #laptop-pic{
+        /* margin-top: 80px; */
+        /* margin: 5px; */
+        width: 100%;
+        height: 1000px;
+        border: #0d0e13 solid 2px;
+        background: url("Practical-8\ Laptop\ Pic.jpg");
+    }
+    
+    /* #circles{
+        width: 100%;
+        display:inline-block;
+    } */
+
+    #circles{
+        content: " ";
+        display : block;
+        clear: both;
+    } 
+    #circle-1{
+        float: left;
+        width: 230px;
+        height: 230px;
+        margin: auto 50px;
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(1\).png");
+    }
+    #circle-2{
+        float: left;
+        width: 230px;
+        height: 230px; 
+        margin: auto 50px;
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(2\).png");
+    }
+    #circle-3{
+        width: 230px;
+        height: 230px;
+        margin: auto 50px;
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(3\).png");
+    }
+    #circle-4{
+        width: 230px;
+        height: 230px;
+        margin: auto 50px;
+        margin-top: 20px;
+        margin-left: 400px; 
+        border-radius: 50%;
+        border: #0d0e13 solid 2px;
+        background-repeat: no-repeat;
+        background: url("Practical-8\ Team\(4\).png");
+    } 
+    #about-us{
+        display: flex;
+        flex-direction: row-reverse; 
+    } 
+    #about-us:after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+    #left-side{
+        order: 1;
+        width: 100%;
+        border: #0d0e13 solid 2px;
+        background-color: grey;
+        color: white;
+        margin-right: 10px;
+    }
+    #right-side{
+        width: 100%;
+        display:flex;
+        border: #0d0e13 solid 2px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    #image-1 h1{
+        text-align: center;
+        color: black;
+    }
+    #image-2 h1{
+        /* text-align: center;
+        color: black;
+        display: block; */
+        display: none;
+    }
+    #image-3 h1{
+        /* text-align: center;
+        color: black;
+        display: block; */
+        display: none;
+    }
+
+    #image-1{
+        width: 97%;
+        height: 100%;
+        margin-bottom: 10px;
+        background: url('../Fullstack-1/Practical-8\ Project\(1\).jpg');
+        display: flex;
+        text-align: center;
+    }
+    #image-2{
+        /* background: url('../Fullstack-1/Practical-8\ Project\(2\).jpeg');
+        width: 97%;
+        height: 140px;
+        margin-bottom: 10px;
+        display: flex; 
+        display: block;
+        text-align: center; */
+        display: none;
+    }
+    #image-3{
+        /* background:url('../Fullstack-1/Practical-8\ Project\(3\).jpg');
+        width: 97%;
+        height: 120px;
+        display: flex;
+        display: block; 
+        text-align: center; */
+        display: none;
+    }
+    #tech:after {
+          content: '';
+          display: block;
+          clear: both;
+    }
+
+    /* #tech{
+        display:flex;
+        flex-direction: row-reverse; 
+    }  */
+    #html-card{
+        float: left;
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: #0d0e13 solid 2px; */
+        padding: 10px;
+        margin: 25px;
+    }
+    #css-card{
+        float: left;
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: #0d0e13 solid 2px; */
+        padding: 10px;
+        margin: 25px;
+    }
+    #boot-card{
+        /* float: left; */
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: #0d0e13 solid 2px; */
+        padding: 10px;
+        margin: 25px;
+    }
+    #js-card{
+        /* float: left; */
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        /* border: black 2px; */
+        padding: 10px;
+        margin: 25px;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    img{
+        width: 100%;
+        height: 45%;
+        border-radius: 10px;
+    }
+
+    #ht{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    #ht:hover{
+        background-color: blue;
+    }
+    #cs{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block; 
+        padding: 10px;
+    }
+    #cs:hover{
+        background-color: blue;
+    }
+    #js{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #js:hover{
+        background-color: blue;
+    }
+    #bs{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #bs:hover{
+        background-color: blue;
+    }
+
+
+    #contact{
+        margin: 10px;
+        width: 100%;
+        height: 100px;
+        border: #0d0e13 solid 2px;
+        background-color:rgb(146, 102, 108);
+        text-align: center;
+        font-size: 20px;
+    }
+   }
+
+   @media (min-width: 1201px){
+
+    .menu li a{
+        text-decoration: none;
+    }
+    li{
+        list-style: none;
+    }
+    #abc{
+        text-align: left;
+    }
+    h2{
+        text-align: center;
+    }    
+    #laptop-pic{
+        margin-top: 30px;
+        margin: 5px;
+        width: 100%;
+        height: 1000px;
+        background: url("Practical-8\ Laptop\ Pic.jpg");
+    }
+    #circles{
+        width: 100%;
+        display:inline-block;
+    }
+    #circle-1{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin: 50px;
+        /* float:left; */
+        display:inline-block;
+        background: url("Practical-8\ Team\(1\).png");
+    }
+    #circle-2{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin: 50px;
+        /* float: left; */
+        display:inline-block;
+        background: url("Practical-8\ Team\(2\).png");
+    }
+    #circle-3{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin: 50px;
+        /* float: left; */
+        display:inline-block;
+        background: url("Practical-8\ Team\(3\).png");
+    }
+    #circle-4{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin: 50px;
+        /* float: left; */
+        display:inline-block;
+        background: url("Practical-8\ Team\(4\).png");
+    }
+    #about-us{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    #left-side{
+        order: 1;
+        width: 50%;
+        background-color: grey;
+        color: white;
+        margin-right: 10px;
+    }
+    #right-side{
+        width: 50%;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    #image-1 h1{
+        text-align: center;
+        color: black;
+    }
+    #image-2 h1{
+        text-align: center;
+        color: black;
+    }
+    #image-3 h1{
+        text-align: center;
+        color: black;
+    }
+
+    #image-1{
+        width: 97%;
+        height: 140px;
+        margin-bottom: 10px;
+        background: url('../Fullstack-1/Practical-8\ Project\(1\).jpg');
+        display: flex;
+        text-align: center;
+    }
+    #image-2{
+        background: url('../Fullstack-1/Practical-8\ Project\(2\).jpeg');
+        width: 97%;
+        height: 140px;
+        margin-bottom: 10px;
+        display: flex;
+        text-align: center;
+    }
+    #image-3{
+        background:url('../Fullstack-1/Practical-8\ Project\(3\).jpg');
+        width: 97%;
+        height: 120px;
+        display: flex;
+        text-align: center;
+    }
+
+    #tech{
+        display:flex;
+        flex-direction: row;
+    }
+    #html-card{
+        float: left;
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        padding: 10px;
+        margin: 25px;
+    }
+    #css-card{
+        float: left;
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        padding: 10px;
+        margin: 25px;
+    }
+    #js-card{
+        float: left;
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        padding: 10px;
+        margin: 25px;
+    }
+    #boot-card{
+        float: left;
+        width: 300px;
+        height: 350px;
+        background-color: white;
+        padding: 10px;
+        margin: 25px;
+    }
+    img{
+        width: 100%;
+        height: 45%;
+        border-radius: 10px;
+    }
+
+    #ht{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #ht:hover{
+        background-color: blue;
+    }
+    #cs{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #cs:hover{
+        background-color: blue;
+    }
+    #js{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #js:hover{
+        background-color: blue;
+    }
+    #bs{
+        border-radius: 5px;
+        text-align: center;
+        background-color: red;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+
+    }
+    #bs:hover{
+        background-color: blue;
+    }
+
+
+    #contact{
+        margin: 10px;
+        width: 100%;
+        height: 100px;
+        background-color:rgb(146, 102, 108);
+        text-align: center;
+        font-size: 20px;
+    }
+
+   }
+</style>
+<body>
+<div>
+    <div class="header">
+
+        <input type="checkbox" id="chk">
+
+        <label for="chk" class="shw-btn">
+            <i class="fa fa-bars"></i>
+        </label>
+            <ul class="menu">
+                <li><a href="#laptop-pic">HOME</a></li>
+                <li><a href="#about-us">ABOUT US</a></li>
+                <li><a href="#circles">TEAM</a></li>
+                <li><a href="#tech">TECHNOLOGY</a></li>
+                <li><a href="#contact">CONTACTS</a></li>
+            </ul>
+            <label for="chk" class="hide-btn">
+                <i class="fa fa-times"></i>
+            </label>
+
+        </ul>
+    </div>
+
+    <!-- <ul id="nav">
+        <li><a href="#laptop-pic">HOME</a></li>
+        <li><a href="#about-us">ABOUT US</a></li>
+        <li><a href="#circles">TEAM</a></li>
+        <li><a href="#tech">TECHNOLOGY</a></li>
+        <li><a href="#contact">CONTACTS</a></li>
+    </ul> -->
+
+
+    </div>
+    <ul>
+        <li> 
+         <div id="laptop-pic">
+             <h1 style="color: white;">Practical-9</h1>
+         </div>
+        </li>
+        <br><br>
+        <h2>Team Members</h2>
+        <li>
+        <div id="circles">
+                <div id="circle-1"></div>
+                <div id="circle-2"></div>
+                <div id="circle-3"></div>
+                <div id="circle-4"></div>
+        </div>
+        </li>
+
+        <h2>About Us</h2>
+        <li>
+        <div id = "about-us">
+            <div id = "left-side">
+                <p style="font-size: 30px;">About Projects</p>
+                <p style="font-size: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Sit error accusamus enim odio culpa voluptatem atque dolorum labore ad, 
+                suscipit eos quo amet ratione omnis perspiciatis tempore similique qui
+                expedita eius incidunt iste. Delectus eius labore voluptas repudiandae
+                ullam rem, accusantium officiis quas alias corporis eaque, enim magni.
+                Voluptates incidunt unde eligendi minus sunt vero amet est nemo officia,
+                ipsam reiciendis, illum exercitationem animi fugiat eveniet qui facere
+                adipisci blanditiis a esse dignissimos inventore obcaecati, repellendus delectus.
+                Aliquam recusandae fuga saepe quis illum corporis dolorem est perferendis,
+                maiores velit laboriosam esse eum dicta reprehenderit accusamus expedita culpa neque?
+                Eius obcaecati assumenda modi possimus officiis omnis, explicabo quos et laborum magnam 
+                odio facere eligendi vel, sunt fugit quas minus repudiandae quam quisquam incidunt a
+                pariatur iusto amet. Modi atque a excepturi quia provident! Inventore suscipit optio
+                nesciunt corporis facilis incidunt possimus eaque, vitae ducimus, explicabo delectus
+                consectetur mollitia pariatur modi ex?</p>
+            </div>
+            <div id = "right-side">
+                <div id="image-1" style="text-align: center;"><h1>Project-1</h1></div>
+                <div id="image-2"><h1>Project-2</h1></div>
+                <div id="image-3"><h1>Project-3</h1></div>
+            </div>
+        </div>
+        </li>
+
+        <h2>Technology Used</h2>
+        <li>
+        <div id="tech">
+            <div id="html-card">
+                <img src="Practical-5(HTML).png" alt="">
+                <h4 style="text-align: center;">Introduction to HTML</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quibusdam et ullam, amet eligendi fugiat recusandae impedit aliquid consequatur error.</p>
+                <a id="ht" href="Practical-5(HTML).html">Read More</a>
+            </div>
+            <div id="css-card">
+                <img src="Practical-5(CSS)Image.webp" alt="">
+                <h4 style="text-align: center;">Introduction to CSS</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quibusdam et ullam, amet eligendi fugiat recusandae impedit aliquid consequatur error.</p>
+                <a id="cs" href="Practical-5(CSS).html">Read More</a>
+            </div>
+            <div id="js-card">
+                <img src="Practical-5(JavaScript)Image.png" alt="">
+                <h4 style="text-align: center;">Introduction to JavaScript</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quibusdam et ullam, amet eligendi fugiat recusandae impedit aliquid consequatur error.</p>
+                <a id="js" href="Practical-5(JavaScript).html">Read More</a>
+            </div>
+            <div id="boot-card">
+                <img src="Practical-5(BootStrap)Image.png" alt="">
+                <h4 style="text-align: center;">Introduction to BootStrap</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quibusdam et ullam, amet eligendi fugiat recusandae impedit aliquid consequatur error.</p>
+                <a id="bs" href="Practical-5(BootStrap).html">Read More</a>
+            </div>
+        </div>
+        </li>            
+            
+        <li>
+            <h2>Contacts</h2>
+            <div id="contact">Website template of Practical-8 <br> <br><br>
+            <a style="text-align: center;" href="#laptop-pic">Back to top</a>
+            </div>
+        </li>
+    </ul>
+    </div>
+</div>
+</body>
+</html>
